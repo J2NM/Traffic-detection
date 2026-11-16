@@ -1,0 +1,12 @@
+.ipynb_checkpoints/
+__pycache__/
+.venv/
+.env
+data/raw/
+outputs/
+runs/
+*.mp4
+*.mov
+*.avi
+*.pt
+*.safetensors
