@@ -40,14 +40,16 @@ This checklist follows the Team Assignment 4.1 Project Status Update Form. The s
 
 These are planned project outputs. The first milestone is a manually labeled clip that everyone can use to check the notebook.
 
-| Deliverable | Owner | Ready for review when |
+| Deliverable | Owner | Task |
 | --- | --- | --- |
-| Dataset description and split record | Tushar | A teammate can locate the Drive video, identify the development and held-out segments, and reproduce the preprocessing. Adjacent frames from one crossing stay together. |
-| Commented Colab notebook | All three, each owning their section | A teammate can set a Drive path, preview the counting line, run the cells in order and export one record per counted track with its crossing time and color. |
-| Color baseline and Cosmos experiment | Tushar | Compare a simple color baseline with Cosmos Reason 2 on the same car crops. Record settings and discuss whether any fine-tuning improved held-out performance if training was performed. |
-| Annotated video and crossing log | Obinna | The overlay shows the counting line and track IDs. Each crossing record includes its track ID, timestamp and crop references. |
-| Count tables and independent evaluation | Juan | Match predicted crossings to manual timestamps one-to-one. Report the difference in total cars, missed and extra crossings, per-color count differences, and the fraction of matched cars with a known human color that received the correct prediction. |
-| Report and presentation | All three | Tushar explains the data and color experiment, Obinna explains detection, tracking and counting, and Juan presents results and limitations. Include a representative error and the measured effect on the count. |
+| Prepared footage and dataset split | Tushar Kummar | Select the footage, load it from Drive and document the split. |
+| Color labels for tracked cars | Tushar Kummar | Define color labels, compare a simple baseline with Cosmos Reason 2 and attach one color label to each track ID. |
+| Annotated video and crossing log | Obinna Edeh | Detect and track cars with YOLO. Count each track at its first crossing and export the video and log with track IDs, timestamps and crop references. |
+| Manual tally and evaluation results | Juan Norena | Independently label the evaluation clip and compare predictions with the manual counts. |
+| Count tables and error charts | Juan Norena | Report the overall count and color breakdown, then chart counting and classification errors. |
+| Data and color classification sections | Tushar Kummar | Write the corresponding notebook section, report text and slides. |
+| Detection, tracking and counting sections | Obinna Edeh | Write the corresponding notebook section, report text and slides. |
+| Evaluation and reporting sections | Juan Norena | Write the corresponding notebook section, report text and slides. |
 
 ## Change log
 
@@ -55,3 +57,4 @@ These are planned project outputs. The first milestone is a manually labeled cli
 - 2026-11-15: Mapped the Module 4 status form to team deliverables, owners and review criteria.
 - 2026-11-15: Clarified overall car counts and category breakdowns in the project scope and evaluation.
 - 2026-11-15: Redistributed notebook sections, model experiments and reporting across the three team members.
+- 2026-11-15: Matched the deliverable, owner and task table to the Word status form.
