@@ -4,7 +4,7 @@ AAI-521 Team 2 will detect and track cars in recorded video. The notebook will r
 
 ## Planned notebook
 
-Open [drat.ipynb](drat.ipynb) for the team starter, with setup, owner sections and unfinished experiment cells.
+Open [traffic-detection draft.ipynb](traffic-detection%20draft.ipynb) for the team starter, with setup, owner sections and unfinished experiment cells.
 
 1. Open the video in Colab, preview a frame, and place a counting line across the road.
 2. Detect cars with YOLO and follow each car across frames with a tracker.
@@ -62,3 +62,4 @@ These are planned project outputs. The first milestone is a manually labeled cli
 - 2026-11-15: Matched the deliverable, owner and task table to the Word status form.
 - 2026-11-15: Added the drat starter notebook with team roles, code skeletons and analysis prompts.
 - 2026-11-15: Added shared Colab setup for GPU checks, Drive video input, Hugging Face login, YOLO and Cosmos Reason 2 with one-frame checks.
+- 2026-11-15: Renamed the starter notebook to traffic-detection draft.ipynb and updated its link.
