@@ -4,6 +4,8 @@ AAI-521 Team 2 will detect and track cars in recorded video. The notebook will r
 
 ## Planned notebook
 
+Open [drat.ipynb](drat.ipynb) for the team starter, with setup, owner sections and unfinished experiment cells.
+
 1. Open the video in Colab, preview a frame, and place a counting line across the road.
 2. Detect cars with YOLO and follow each car across frames with a tracker.
 3. Record each track at its first line crossing. Give Cosmos Reason 2 cropped views of the car to estimate its body color. Use **uncertain** when the color is unclear.
@@ -58,3 +60,4 @@ These are planned project outputs. The first milestone is a manually labeled cli
 - 2026-11-15: Clarified overall car counts and category breakdowns in the project scope and evaluation.
 - 2026-11-15: Redistributed notebook sections, model experiments and reporting across the three team members.
 - 2026-11-15: Matched the deliverable, owner and task table to the Word status form.
+- 2026-11-15: Added the drat starter notebook with team roles, code skeletons and analysis prompts.
