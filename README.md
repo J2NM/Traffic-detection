@@ -61,3 +61,4 @@ These are planned project outputs. The first milestone is a manually labeled cli
 - 2026-11-15: Redistributed notebook sections, model experiments and reporting across the three team members.
 - 2026-11-15: Matched the deliverable, owner and task table to the Word status form.
 - 2026-11-15: Added the drat starter notebook with team roles, code skeletons and analysis prompts.
+- 2026-11-15: Added shared Colab setup for GPU checks, Drive video input, Hugging Face login, YOLO and Cosmos Reason 2 with one-frame checks.
