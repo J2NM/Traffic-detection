@@ -4,14 +4,30 @@ AAI-521 Team 2 will detect and track cars in recorded video. The notebook will r
 
 ## Planned notebook
 
-Open [traffic-detection draft.ipynb](traffic-detection%20draft.ipynb) for the team starter, with setup, owner sections and unfinished experiment cells.
+Open [traffic-detection draft.ipynb](traffic-detection%20draft.ipynb) for shared setup and team sections. Section 3 implements detection, tracking and counting through [crossings.py](crossings.py). Data preparation, color classification and evaluation still have unfinished cells.
 
 1. Open the video in Colab, preview a frame, and place a counting line across the road.
 2. Detect cars with YOLO and follow each car across frames with a tracker.
 3. Record each track at its first line crossing. Give Cosmos Reason 2 cropped views of the car to estimate its body color. Use **uncertain** when the color is unclear.
 4. Export an annotated video, a CSV with one row per crossing, and a summary showing the overall count and counts by color.
 
-## Evaluation
+## Run detection, tracking and counting
+
+Keep `crossings.py` alongside the notebook in Colab or a Databricks workspace folder. Install `ultralytics>=8.3,<9` and `lap>=0.5.12` with `%pip`. Section 3 can run independently of the Hugging Face and Cosmos setup. In Databricks, use a readable local path or `/Volumes/...` path for the input video and a writable output directory.
+
+Set `video_path` and `line_endpoints` in section 3 after inspecting a full-resolution frame. Endpoints are two `(x, y)` pixel coordinates inside the frame. Run the cell to load YOLO11n, track cars with ByteTrack and count each track's first crossing in either direction. The first model run downloads weights. CPU execution is supported. A GPU can reduce processing time.
+
+The counter uses the bottom-center of the detection box, a three-pixel line margin and a maximum gap of 30 frames between stable observations. The movement must intersect the finite line segment. Adjust these settings on the development clip before evaluating the held-out clip. Track ID changes can cause missed or repeated counts. Timestamps assume constant frame rate and start at zero for each clip.
+
+Each call creates a unique folder containing `annotated.mp4`, `crossings.csv`, `crops/` and `summary.json`. The summary records the total, processed frames and settings and is written only after processing succeeds. Verify the processed frame count against the input duration because a truncated video can stop decoding early. Failed runs can leave partial folders without a summary.
+
+The function returns `(crossings, annotated_path)`. Each record contains `track_id`, `time_seconds` and `crop_paths`. In the CSV, `crop_paths` is a JSON list. Resolve paths relative to the run folder and share that entire folder. Up to three recent crops accompany each crossing. Join Tushar's color labels by track ID within the same run. Juan can match the crossing timestamps to his manual tally.
+
+Run `python -m unittest -v test_crossings` to check crossing geometry and artifact exports. The export test uses a synthetic clip and controlled detections. Team-footage accuracy and Databricks execution still require validation.
+
+Tracking uses the [Ultralytics tracking API](https://docs.ultralytics.com/modes/track/).
+
+## Evaluation procedure
 
 Reserve a clip or a separate time segment before tuning. A reviewer will log each crossing time and color independently. Match those observations to predicted crossings to report missed cars, extra counts, and color accuracy for matched cars with readable colors.
 
@@ -54,6 +70,8 @@ These are planned project outputs. The first milestone is a manually labeled cli
 | Evaluation and reporting sections | Juan Norena | Write the corresponding notebook section, report text and slides. |
 
 ## Change log
+
+- 2026-11-27: Implemented first-crossing detection with YOLO and ByteTrack, annotated video and CSV exports, per-track crops, independent run folders, notebook integration and five regression tests. Documented Databricks setup and the pending team-footage validation.
 
 - 2026-11-15: Documented project scope, team responsibilities and evaluation plans, and added ignore rules for local data and outputs.
 - 2026-11-15: Mapped the Module 4 status form to team deliverables, owners and review criteria.
